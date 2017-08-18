@@ -43,12 +43,17 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+  //  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
+    app.setQuitOnLastWindowClosed(false);
+    app.setApplicationName("simple_browser");
+    app.setApplicationVersion("1.0");
     QWebEngineView view;
     view.setUrl(QUrl(argv[1]));
-    view.resize(1024, 750);
-    view.show();
+   // view.setGeometry(qApp->desktop()->screenGeometry());
+    view.showFullScreen();
+
+  //  view.show();
 
     return app.exec();
 }
