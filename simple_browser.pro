@@ -2,7 +2,9 @@ TEMPLATE = app
 
 QT += webenginewidgets
 
+TARGET = simple_browser
+
 SOURCES += main.cpp
 
-target.path = $$[QT_INSTALL_EXAMPLES]/webenginewidgets/minimal
+target.path = $$PREFIX/bin
 INSTALLS += target
