@@ -40,6 +40,7 @@
 
 #include <QApplication>
 #include <QWebEngineView>
+#include <QWebEngineProfile>
 
 int main(int argc, char *argv[])
 {
@@ -49,11 +50,9 @@ int main(int argc, char *argv[])
     app.setApplicationName("simple_browser");
     app.setApplicationVersion("1.0");
     QWebEngineView view;
+    view.page()->profile()->setCachePath("/tmp/root/");
     view.setUrl(QUrl(argv[1]));
-   // view.setGeometry(qApp->desktop()->screenGeometry());
     view.showFullScreen();
-
-  //  view.show();
 
     return app.exec();
 }
