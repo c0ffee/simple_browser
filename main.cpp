@@ -41,16 +41,20 @@
 #include <QApplication>
 #include <QWebEngineView>
 #include <QWebEngineProfile>
+#include <QWebEngineSettings>
+
 
 int main(int argc, char *argv[])
 {
   //  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
+    QWebEngineSettings::defaultSettings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
     app.setQuitOnLastWindowClosed(false);
     app.setApplicationName("simple_browser");
     app.setApplicationVersion("1.0");
     QWebEngineView view;
     view.page()->profile()->setCachePath("/tmp/root/");
+
     view.setUrl(QUrl(argv[1]));
     view.showFullScreen();
 
